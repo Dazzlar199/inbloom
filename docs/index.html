@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인블룸 문서</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            color: rgba(255,255,255,0.7);
+            font-size: 16px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .card-title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">inbloom</div>
+            <p class="tagline">웨딩 서브 서비스 프리랜서 매칭 플랫폼</p>
+        </div>
+
+        <div class="cards">
+            <a href="business-plan/business-plan.html" class="card">
+                <div class="card-icon">📋</div>
+                <div class="card-title">사업기획서</div>
+                <div class="card-desc">
+                    인블룸의 비전, 시장 분석, 비즈니스 모델, 팀 소개가 담긴 사업기획서입니다.
+                </div>
+                <span class="card-badge">IR 자료</span>
+            </a>
+
+            <a href="startup-package/예창패_통합가이드북.html" class="card">
+                <div class="card-icon">📚</div>
+                <div class="card-title">예창패 준비 가이드북</div>
+                <div class="card-desc">
+                    예비창업패키지 지원을 위한 시장검증, 타임라인, 체크리스트 등 실전 준비 매뉴얼입니다.
+                </div>
+                <span class="card-badge">내부 문서</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            inbloom Team &copy; 2025
+        </div>
+    </div>
+</body>
+</html>
