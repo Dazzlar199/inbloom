@@ -3293,6 +3293,180 @@
     </div>
 </div>
 
+<!-- ========== PART 2-0-2-2: AI 매칭 로직 상세 ========== -->
+<div class="page" id="part2-ai-matching">
+    <div class="section-header">
+        <span class="section-badge">PART 2</span>
+        <h2 class="section-title">AI 스타일 매칭 - 기술 로직 상세</h2>
+        <p class="section-desc">자연어 프롬프트 파싱 → 스타일 태그 추출 → 프리랜서 매칭</p>
+    </div>
+
+    <h3>AI 매칭 프로세스 흐름</h3>
+
+    <div class="key-point">
+        <div class="key-point-title">핵심: 자연어를 스타일 태그로 변환</div>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 15px 0; flex-wrap: wrap;">
+            <div style="background: #DBEAFE; padding: 12px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 10px; color: #1E40AF;">STEP 1</div>
+                <div style="font-weight: 700; font-size: 12px;">고객 요청 입력</div>
+                <div style="font-size: 10px; color: #666;">"디즈니 감성 축가"</div>
+            </div>
+            <div style="font-size: 18px;">→</div>
+            <div style="background: #FEF3C7; padding: 12px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 10px; color: #92400E;">STEP 2</div>
+                <div style="font-weight: 700; font-size: 12px;">GPT 프롬프트 파싱</div>
+                <div style="font-size: 10px; color: #666;">자연어 → 태그 추출</div>
+            </div>
+            <div style="font-size: 18px;">→</div>
+            <div style="background: #F3E8FF; padding: 12px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 10px; color: #6B21A8;">STEP 3</div>
+                <div style="font-weight: 700; font-size: 12px;">스타일 태그 매칭</div>
+                <div style="font-size: 10px; color: #666;">#동화풍 #발라드 #여성보컬</div>
+            </div>
+            <div style="font-size: 18px;">→</div>
+            <div style="background: #16A34A; color: white; padding: 12px 16px; border-radius: 8px; text-align: center;">
+                <div style="font-size: 10px; opacity: 0.8;">STEP 4</div>
+                <div style="font-weight: 700; font-size: 12px;">고수 3~5명 추천</div>
+                <div style="font-size: 10px;">유사도 기반 랭킹</div>
+            </div>
+        </div>
+    </div>
+
+    <h4>STEP 2: GPT 프롬프트 파싱 상세</h4>
+
+    <div style="background: #1E1E1E; border-radius: 8px; padding: 16px; margin: 15px 0; font-family: monospace; font-size: 11px; color: #D4D4D4; overflow-x: auto;">
+        <div style="color: #6A9955;">// 고객 입력 예시</div>
+        <div style="color: #CE9178;">"힙하고 트렌디한 느낌의 본식 영상, 예산 50만원대"</div>
+        <br>
+        <div style="color: #6A9955;">// GPT 프롬프트</div>
+        <div style="color: #569CD6;">System:</div> <span style="color: #CE9178;">"웨딩 서브서비스 요청을 분석하여 스타일 태그를 추출하세요."</span>
+        <br><br>
+        <div style="color: #6A9955;">// GPT 응답 (JSON)</div>
+        <div style="color: #DCDCAA;">{</div>
+        <div style="margin-left: 16px;"><span style="color: #9CDCFE;">"category"</span>: <span style="color: #CE9178;">"영상"</span>,</div>
+        <div style="margin-left: 16px;"><span style="color: #9CDCFE;">"style_tags"</span>: [<span style="color: #CE9178;">"#힙한", "#트렌디", "#시네마틱", "#MZ감성"</span>],</div>
+        <div style="margin-left: 16px;"><span style="color: #9CDCFE;">"budget_range"</span>: <span style="color: #CE9178;">"50-60만원"</span>,</div>
+        <div style="margin-left: 16px;"><span style="color: #9CDCFE;">"priority"</span>: [<span style="color: #CE9178;">"스타일", "예산", "리뷰"</span>]</div>
+        <div style="color: #DCDCAA;">}</div>
+    </div>
+
+    <h4>STEP 3: 프리랜서 스타일 태그 DB</h4>
+
+    <table style="font-size: 11px;">
+        <tr>
+            <th style="width:20%">프리랜서</th>
+            <th style="width:15%">카테고리</th>
+            <th style="width:35%">스타일 태그</th>
+            <th style="width:15%">예산대</th>
+            <th style="width:15%">유사도</th>
+        </tr>
+        <tr style="background: #F0FDF4;">
+            <td><strong>영상감독 A</strong></td>
+            <td>영상</td>
+            <td>#힙한 #시네마틱 #MZ감성 #숏폼</td>
+            <td>50~70만</td>
+            <td style="color: #16A34A; font-weight: 700;">92%</td>
+        </tr>
+        <tr style="background: #F0FDF4;">
+            <td><strong>영상감독 B</strong></td>
+            <td>영상</td>
+            <td>#트렌디 #감성 #드론촬영</td>
+            <td>60~80만</td>
+            <td style="color: #16A34A; font-weight: 700;">85%</td>
+        </tr>
+        <tr>
+            <td>영상감독 C</td>
+            <td>영상</td>
+            <td>#클래식 #전통 #정통</td>
+            <td>40~50만</td>
+            <td style="color: #9CA3AF;">45%</td>
+        </tr>
+        <tr>
+            <td>영상감독 D</td>
+            <td>영상</td>
+            <td>#다큐 #인터뷰 #가족중심</td>
+            <td>50~60만</td>
+            <td style="color: #9CA3AF;">38%</td>
+        </tr>
+    </table>
+
+    <h4 style="margin-top: 20px;">스타일 태그 체계 (카테고리별)</h4>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 15px 0;">
+        <div style="background: #F9FAFB; border-radius: 8px; padding: 12px; border-left: 3px solid #2563EB;">
+            <div style="font-weight: 700; font-size: 12px; color: #2563EB; margin-bottom: 6px;">영상/스냅</div>
+            <div style="font-size: 10px; color: #666; line-height: 1.6;">
+                #시네마틱 #다큐 #감성 #힙한<br>
+                #클래식 #모던 #빈티지 #필름<br>
+                #드론 #숏폼 #MZ감성
+            </div>
+        </div>
+        <div style="background: #F9FAFB; border-radius: 8px; padding: 12px; border-left: 3px solid #7C3AED;">
+            <div style="font-weight: 700; font-size: 12px; color: #7C3AED; margin-bottom: 6px;">축가/음악</div>
+            <div style="font-size: 10px; color: #666; line-height: 1.6;">
+                #발라드 #팝 #CCM #재즈<br>
+                #동화풍 #디즈니 #OST #듀엣<br>
+                #밴드 #어쿠스틱 #피아노
+            </div>
+        </div>
+        <div style="background: #F9FAFB; border-radius: 8px; padding: 12px; border-left: 3px solid #DC2626;">
+            <div style="font-weight: 700; font-size: 12px; color: #DC2626; margin-bottom: 6px;">메이크업/헤어</div>
+            <div style="font-size: 10px; color: #666; line-height: 1.6;">
+                #내추럴 #글램 #청순 #세련<br>
+                #웨이브 #업스타일 #반묶음<br>
+                #한복 #드레스 #투피스
+            </div>
+        </div>
+    </div>
+
+    <h4>기술 스택 & 구현 계획</h4>
+
+    <table style="font-size: 11px;">
+        <tr>
+            <th style="width:25%">구성요소</th>
+            <th style="width:35%">기술</th>
+            <th style="width:40%">설명</th>
+        </tr>
+        <tr>
+            <td><strong>프롬프트 파싱</strong></td>
+            <td>OpenAI GPT-4o-mini API</td>
+            <td>자연어 → 스타일 태그 JSON 추출</td>
+        </tr>
+        <tr>
+            <td><strong>태그 임베딩</strong></td>
+            <td>OpenAI text-embedding-3-small</td>
+            <td>태그 벡터화 (1536차원)</td>
+        </tr>
+        <tr>
+            <td><strong>유사도 계산</strong></td>
+            <td>Cosine Similarity</td>
+            <td>요청 태그 vs 프리랜서 태그 매칭</td>
+        </tr>
+        <tr>
+            <td><strong>랭킹 알고리즘</strong></td>
+            <td>가중 스코어링</td>
+            <td>유사도 60% + 리뷰 20% + 응답률 20%</td>
+        </tr>
+        <tr>
+            <td><strong>DB</strong></td>
+            <td>Supabase (PostgreSQL + pgvector)</td>
+            <td>벡터 검색 지원</td>
+        </tr>
+    </table>
+
+    <div class="alert alert-info" style="margin-top: 15px;">
+        <strong>MVP 단계:</strong> GPT API로 태그 추출 → 단순 태그 매칭 (벡터 없이)<br>
+        <strong>고도화 (Phase 2):</strong> 임베딩 기반 유사도 검색 + 사용자 피드백 학습
+    </div>
+
+    <div class="alert alert-success">
+        <strong>경쟁사 대비 차별점:</strong><br>
+        • <strong>숨고:</strong> 카테고리 기반 검색 (키워드만) → "디즈니 감성" 검색 불가<br>
+        • <strong>크몽:</strong> 고정 카탈로그 → 스타일 필터 없음<br>
+        • <strong>특별시:</strong> 자연어 → AI 파싱 → 스타일 태그 매칭 = <strong>감성 검색 가능</strong>
+    </div>
+</div>
+
 <!-- ========== PART 2-0-3: 웨딩 크루 시스템 ========== -->
 <div class="page" id="part2-crew">
     <div class="section-header">
@@ -6731,6 +6905,112 @@
             <td><strong>800만원 (60% 절감)</strong></td>
         </tr>
     </table>
+
+    <h3 style="margin-top: 25px;">기술 스택 & 시스템 아키텍처</h3>
+
+    <div style="background: linear-gradient(135deg, #1E1E1E, #2D2D2D); border-radius: 12px; padding: 20px; margin: 15px 0; color: white;">
+        <div style="text-align: center; margin-bottom: 15px;">
+            <span style="background: #16A34A; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px;">특별시 기술 아키텍처</span>
+        </div>
+
+        <!-- 프론트엔드 레이어 -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px;">
+            <div style="background: #3B82F6; border-radius: 8px; padding: 12px; text-align: center;">
+                <div style="font-size: 10px; opacity: 0.8;">Mobile App</div>
+                <div style="font-weight: 700; font-size: 13px;">Flutter</div>
+                <div style="font-size: 9px; opacity: 0.7;">iOS + Android 동시 개발</div>
+            </div>
+            <div style="background: #3B82F6; border-radius: 8px; padding: 12px; text-align: center;">
+                <div style="font-size: 10px; opacity: 0.8;">Web App</div>
+                <div style="font-weight: 700; font-size: 13px;">Next.js 14</div>
+                <div style="font-size: 9px; opacity: 0.7;">SSR + SEO 최적화</div>
+            </div>
+            <div style="background: #3B82F6; border-radius: 8px; padding: 12px; text-align: center;">
+                <div style="font-size: 10px; opacity: 0.8;">Admin</div>
+                <div style="font-weight: 700; font-size: 13px;">React + Tailwind</div>
+                <div style="font-size: 9px; opacity: 0.7;">관리자 대시보드</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: #6B7280; font-size: 18px; margin: 5px 0;">↓</div>
+
+        <!-- 백엔드 레이어 -->
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px;">
+            <div style="background: #F59E0B; border-radius: 8px; padding: 12px; text-align: center; color: #1E1E1E;">
+                <div style="font-size: 10px; opacity: 0.8;">BaaS</div>
+                <div style="font-weight: 700; font-size: 13px;">Firebase</div>
+                <div style="font-size: 9px; opacity: 0.7;">Auth, FCM, Storage, Hosting</div>
+            </div>
+            <div style="background: #10B981; border-radius: 8px; padding: 12px; text-align: center;">
+                <div style="font-size: 10px; opacity: 0.8;">Database</div>
+                <div style="font-weight: 700; font-size: 13px;">Supabase</div>
+                <div style="font-size: 9px; opacity: 0.7;">PostgreSQL + pgvector + Realtime</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: #6B7280; font-size: 18px; margin: 5px 0;">↓</div>
+
+        <!-- AI 레이어 -->
+        <div style="background: linear-gradient(135deg, #8B5CF6, #6366F1); border-radius: 8px; padding: 12px; text-align: center;">
+            <div style="font-size: 10px; opacity: 0.8;">AI Engine</div>
+            <div style="font-weight: 700; font-size: 13px;">OpenAI API (GPT-4o-mini + Embedding)</div>
+            <div style="font-size: 9px; opacity: 0.7;">프롬프트 파싱 → 스타일 태그 추출 → 벡터 유사도 매칭</div>
+        </div>
+    </div>
+
+    <h4>기술 선택 이유</h4>
+    <table style="font-size: 11px;">
+        <tr>
+            <th style="width:20%">기술</th>
+            <th style="width:40%">선택 이유</th>
+            <th style="width:40%">대안 대비 장점</th>
+        </tr>
+        <tr>
+            <td><strong>Flutter</strong></td>
+            <td>단일 코드베이스로 iOS/Android 동시 개발</td>
+            <td>개발비 50% 절감, 출시 속도 2배</td>
+        </tr>
+        <tr>
+            <td><strong>Next.js</strong></td>
+            <td>SEO 필수 (웨딩 검색 유입), SSR 지원</td>
+            <td>React 생태계 + Vercel 배포 용이</td>
+        </tr>
+        <tr>
+            <td><strong>Firebase</strong></td>
+            <td>인증, 푸시알림, 파일저장 올인원</td>
+            <td>초기 무료, 관리 부담 최소화</td>
+        </tr>
+        <tr>
+            <td><strong>Supabase</strong></td>
+            <td>PostgreSQL 기반 + pgvector 벡터 검색</td>
+            <td>AI 매칭에 필수, Firebase 보완</td>
+        </tr>
+        <tr>
+            <td><strong>OpenAI API</strong></td>
+            <td>자체 모델 개발 불필요, 즉시 적용</td>
+            <td>GPT-4o-mini 비용 효율적 (1M 토큰 $0.15)</td>
+        </tr>
+    </table>
+
+    <h4 style="margin-top: 20px;">MVP 핵심 기능 (Phase 1)</h4>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0;">
+        <div style="background: #F0FDF4; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #16A34A;">
+            <div style="font-weight: 700; font-size: 12px; color: #16A34A;">프리랜서 등록</div>
+            <div style="font-size: 10px; color: #666; margin-top: 4px;">프로필, 포트폴리오<br>스타일 태그 설정</div>
+        </div>
+        <div style="background: #F0FDF4; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #16A34A;">
+            <div style="font-weight: 700; font-size: 12px; color: #16A34A;">AI 매칭</div>
+            <div style="font-size: 10px; color: #666; margin-top: 4px;">자연어 입력<br>스타일 기반 추천</div>
+        </div>
+        <div style="background: #F0FDF4; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #16A34A;">
+            <div style="font-weight: 700; font-size: 12px; color: #16A34A;">실시간 채팅</div>
+            <div style="font-size: 10px; color: #666; margin-top: 4px;">고객-프리랜서<br>1:1 상담</div>
+        </div>
+        <div style="background: #F0FDF4; border-radius: 8px; padding: 12px; text-align: center; border: 1px solid #16A34A;">
+            <div style="font-weight: 700; font-size: 12px; color: #16A34A;">예약/결제</div>
+            <div style="font-size: 10px; color: #666; margin-top: 4px;">에스크로 결제<br>일정 관리</div>
+        </div>
+    </div>
 
     <div class="alert alert-warning" style="margin-top: 15px; background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px;">
         <strong>Phase 2 추가 개발비:</strong> 예창패 선정 후 800만원 추가 투입 (기능 고도화, 성능 최적화) → 총 개발비 1,600만원
