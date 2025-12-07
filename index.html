@@ -1147,7 +1147,7 @@
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0;">
         <div style="background: #F0FDF4; border-radius: 8px; padding: 16px; border-left: 4px solid #16A34A;">
             <div style="font-weight: 700; color: #16A34A; margin-bottom: 8px;">1. 가장 높은 객단가</div>
-            <p style="font-size: 11px; color: #333; margin: 0;">웨딩 서브서비스 평균 지출 300~500만원<br>→ 높은 LTV로 사업 안정성 확보</p>
+            <p style="font-size: 11px; color: #333; margin: 0;">고객당 서브서비스 총 지출 평균 67.5만원<br>→ 높은 거래액으로 수익성 확보</p>
         </div>
         <div style="background: #F0FDF4; border-radius: 8px; padding: 16px; border-left: 4px solid #16A34A;">
             <div style="font-weight: 700; color: #16A34A; margin-bottom: 8px;">2. 검증된 수요</div>
@@ -1497,11 +1497,11 @@
 
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 15px 0;">
         <div style="background: linear-gradient(135deg, #FF0050 0%, #00F2EA 100%); border-radius: 10px; padding: 15px; color: #fff;">
-            <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px;">축가 바이럴</div>
+            <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px;">축가/듀엣 바이럴</div>
             <p style="font-size: 11px; margin: 0; line-height: 1.5;">
-                틱톡에서 "미친 축가 실력" 영상 바이럴<br>
-                → "저 가수 누구?" 댓글 폭발<br>
-                → <strong>축가 가수 섭외 수요 증가</strong>
+                신랑신부 듀엣, 깜짝 고백송 영상 바이럴<br>
+                → "우리도 저렇게 하고 싶다!" 반응<br>
+                → <strong>축가 레슨/반주 섭외 수요 증가</strong>
             </p>
         </div>
         <div style="background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%); border-radius: 10px; padding: 15px; color: #fff;">
@@ -5786,71 +5786,186 @@
 <div class="page">
     <div class="section-header">
         <span class="section-badge">PART 3</span>
-        <h2 class="section-title">Unit Economics - 수익 구조</h2>
-        <p class="section-desc">프리랜서당 수익성과 정산 수수료 구간</p>
+        <h2 class="section-title">Unit Economics - 수익 구조 상세</h2>
+        <p class="section-desc">매칭 프로세스와 수익 발생 구조를 단계별로 분석</p>
     </div>
 
-    <h4>프리랜서 (공급자) 측 - 핵심 수익원</h4>
-    <table>
+    <h3>매칭 프로세스 & 수익 발생 구조</h3>
+
+    <div class="key-point">
+        <div class="key-point-title">매칭 1건의 수익 흐름</div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+            <div style="background: #E8F5E9; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
+                <div style="font-size: 11px; color: #666;">STEP 1</div>
+                <div style="font-weight: 700; font-size: 13px;">고객 요청</div>
+                <div style="font-size: 11px; color: #16A34A;">무료</div>
+            </div>
+            <div style="font-size: 18px;">→</div>
+            <div style="background: #FEF3C7; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
+                <div style="font-size: 11px; color: #666;">STEP 2</div>
+                <div style="font-weight: 700; font-size: 13px;">AI가 고수 3~5명 추천</div>
+                <div style="font-size: 11px; color: #D97706;"><strong>고수당 1,000원</strong></div>
+            </div>
+            <div style="font-size: 18px;">→</div>
+            <div style="background: #DBEAFE; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
+                <div style="font-size: 11px; color: #666;">STEP 3</div>
+                <div style="font-weight: 700; font-size: 13px;">고객이 1명 선택</div>
+                <div style="font-size: 11px; color: #2563EB;">거래 성사</div>
+            </div>
+            <div style="font-size: 18px;">→</div>
+            <div style="background: #16A34A; color: white; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
+                <div style="font-size: 11px; opacity: 0.8;">STEP 4</div>
+                <div style="font-weight: 700; font-size: 13px;">정산 시 수수료</div>
+                <div style="font-size: 11px;"><strong>1,000~4,000원</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <h4>매칭 1건당 수익 계산 (상세)</h4>
+    <table style="font-size: 12px;">
         <tr>
-            <th style="width:30%">항목</th>
-            <th style="width:35%">산출</th>
-            <th style="width:35%">금액</th>
+            <th style="width:35%">항목</th>
+            <th style="width:35%">계산</th>
+            <th style="width:30%">금액</th>
+        </tr>
+        <tr style="background: #FEF3C7;">
+            <td><strong>매칭 수익</strong></td>
+            <td>추천 고수 평균 4명 × 1,000원</td>
+            <td><strong>4,000원</strong></td>
         </tr>
         <tr>
-            <td>매칭 크레딧 수익</td>
-            <td>매칭 1건당</td>
-            <td>1,000원</td>
-        </tr>
-        <tr>
-            <td>정산 수수료 평균</td>
-            <td>거래 성사 시 (평균)</td>
-            <td>2,000원</td>
-        </tr>
-        <tr>
-            <td><strong>건당 수익</strong></td>
-            <td>매칭 + 정산</td>
-            <td><strong>3,000원</strong></td>
-        </tr>
-        <tr>
-            <td>월 평균 거래</td>
-            <td>활성 프리랜서당</td>
-            <td>5건</td>
-        </tr>
-        <tr>
-            <td>거래 수익 (월)</td>
-            <td>3,000원 × 5건</td>
-            <td>15,000원</td>
-        </tr>
-        <tr>
-            <td>평균 구독료 (월)</td>
-            <td>Pro 구독 기준</td>
-            <td>20,000원</td>
-        </tr>
-        <tr>
-            <td><strong>월 수익 (프리랜서당)</strong></td>
-            <td>거래 + 구독</td>
-            <td><strong>35,000원</strong></td>
-        </tr>
-        <tr>
-            <td><strong>LTV (12개월)</strong></td>
-            <td>35,000원 × 12개월</td>
-            <td><strong>420,000원</strong></td>
-        </tr>
-        <tr>
-            <td>프리랜서 CAC</td>
-            <td>마케팅 3,700만 ÷ 1,000명</td>
-            <td>37,000원</td>
+            <td>추가 매칭 신청 (30%)</td>
+            <td>30% 확률로 재추천 × 4명 × 1,000원</td>
+            <td>+1,200원 (평균)</td>
         </tr>
         <tr style="background: #E8F5E9;">
-            <td><strong>LTV/CAC</strong></td>
-            <td>420,000 ÷ 37,000</td>
-            <td><strong>11.4배 ✓</strong></td>
+            <td><strong>매칭당 평균 수익</strong></td>
+            <td>4,000 + 1,200</td>
+            <td><strong>5,200원</strong></td>
+        </tr>
+        <tr>
+            <td><strong>정산 수수료</strong></td>
+            <td>거래 성사 시 (평균)</td>
+            <td><strong>2,000원</strong></td>
+        </tr>
+        <tr style="background: #DBEAFE;">
+            <td><strong>거래 1건당 총 수익</strong></td>
+            <td>매칭 5,200 + 정산 2,000</td>
+            <td><strong>7,200원</strong></td>
         </tr>
     </table>
 
-    <h4>정산 수수료 구간 (거래액 기준)</h4>
-    <table>
+    <div class="alert alert-info" style="margin-top: 15px;">
+        <strong>핵심:</strong> 고객 1명이 고수 1명을 선택하더라도, 추천 과정에서 <strong>3~5명의 고수에게 모두 매칭 크레딧 수익</strong>이 발생합니다.<br>
+        마음에 드는 고수가 없으면 <strong>추가 매칭 신청</strong> → 추가 수익 발생
+    </div>
+
+    <h4 style="margin-top: 25px;">구독 수익 구조 (프리랜서 대상)</h4>
+
+    <div style="background: #F9FAFB; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+        <p style="font-size: 12px; margin: 0 0 10px 0; color: #666;">
+            <strong>중요:</strong> 모든 프리랜서가 유료 구독하는 것이 아닙니다. <strong>무료로도 매칭/견적 무제한</strong> 가능하며,<br>
+            유료 구독은 <strong>노출 우선순위, 크레딧 혜택, 크루 참여</strong> 등 성장을 원하는 프리랜서가 선택합니다.
+        </p>
+    </div>
+
+    <table style="font-size: 11px;">
+        <tr>
+            <th style="width:18%">플랜</th>
+            <th style="width:15%">월 요금</th>
+            <th style="width:42%">혜택</th>
+            <th style="width:25%">예상 가입률</th>
+        </tr>
+        <tr>
+            <td><strong>Free</strong></td>
+            <td>0원</td>
+            <td>매칭/견적 무제한, 기본 노출</td>
+            <td>전체의 <strong>60%</strong></td>
+        </tr>
+        <tr style="background: #F0FDF4;">
+            <td><strong>Basic</strong></td>
+            <td>9,900원</td>
+            <td>10크레딧, 2배 노출, 크루 1개</td>
+            <td>전체의 <strong>20%</strong></td>
+        </tr>
+        <tr style="background: #DBEAFE;">
+            <td><strong>Pro</strong></td>
+            <td>19,900원</td>
+            <td>22크레딧, 4배 노출, 크루 2개, 피처링</td>
+            <td>전체의 <strong>15%</strong></td>
+        </tr>
+        <tr style="background: #FEF3C7;">
+            <td><strong>Premium</strong></td>
+            <td>29,900원</td>
+            <td>40크레딧, 최상단, 크루 3개, 전담매니저</td>
+            <td>전체의 <strong>5%</strong></td>
+        </tr>
+    </table>
+
+    <h4 style="margin-top: 20px;">프리랜서 1,000명 기준 월 수익 시뮬레이션</h4>
+    <table style="font-size: 11px;">
+        <tr>
+            <th style="width:25%">수익원</th>
+            <th style="width:40%">계산</th>
+            <th style="width:20%">월 수익</th>
+            <th style="width:15%">비중</th>
+        </tr>
+        <tr>
+            <td><strong>매칭 수익</strong></td>
+            <td>월 500건 × 5,200원</td>
+            <td><strong>260만원</strong></td>
+            <td>24%</td>
+        </tr>
+        <tr>
+            <td><strong>정산 수수료</strong></td>
+            <td>월 500건 × 2,000원</td>
+            <td><strong>100만원</strong></td>
+            <td>9%</td>
+        </tr>
+        <tr style="background: #F0FDF4;">
+            <td><strong>구독 - Basic</strong></td>
+            <td>200명 × 9,900원</td>
+            <td><strong>198만원</strong></td>
+            <td>18%</td>
+        </tr>
+        <tr style="background: #DBEAFE;">
+            <td><strong>구독 - Pro</strong></td>
+            <td>150명 × 19,900원</td>
+            <td><strong>299만원</strong></td>
+            <td>27%</td>
+        </tr>
+        <tr style="background: #FEF3C7;">
+            <td><strong>구독 - Premium</strong></td>
+            <td>50명 × 29,900원</td>
+            <td><strong>150만원</strong></td>
+            <td>14%</td>
+        </tr>
+        <tr>
+            <td><strong>기타 (광고 등)</strong></td>
+            <td>프리미엄 노출, 배너</td>
+            <td><strong>100만원</strong></td>
+            <td>9%</td>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td colspan="2"><strong>월 총 수익</strong></td>
+            <td><strong>1,107만원</strong></td>
+            <td><strong>100%</strong></td>
+        </tr>
+        <tr style="background: #16A34A; color: white;">
+            <td colspan="2"><strong>연 매출 (12개월)</strong></td>
+            <td colspan="2"><strong>약 1.3억원</strong></td>
+        </tr>
+    </table>
+
+    <div class="alert alert-success" style="margin-top: 15px;">
+        <strong>수익 구조의 강점:</strong><br>
+        1) <strong>구독 수익 59%</strong> (Basic+Pro+Premium) → 안정적 MRR 확보<br>
+        2) <strong>매칭 수익 24%</strong> → 거래량에 비례하는 성장 수익<br>
+        3) <strong>무료 플랜도 제공</strong> → 진입장벽 낮춰 프리랜서 풀 빠르게 확보
+    </div>
+
+    <h4 style="margin-top: 25px;">정산 수수료 구간 (거래액 기준)</h4>
+    <table style="font-size: 12px;">
         <tr>
             <th>거래액</th>
             <th>정산 수수료</th>
@@ -5877,7 +5992,7 @@
             <td>2% 이하</td>
         </tr>
     </table>
-    <p style="font-size:12px; color:var(--text-gray);">예) 10만원 거래 시: 매칭 1,000원 + 정산 2,000원 = 3,000원 (3%)</p>
+    <p style="font-size:11px; color:var(--text-gray);">예) 10만원 거래 시: 정산 수수료 2,000원 (2%) - 크몽 20%보다 <strong>10배 저렴</strong></p>
 
     <!-- 특별시 액션 아이템 -->
     <div style="background: linear-gradient(135deg, #18181B, #3F3F46); border-radius: 12px; padding: 20px; margin-top: 20px; color: white;">
@@ -8039,9 +8154,9 @@
             <strong>SOM (목표 시장):</strong> 3년 내 서울/경기 온라인 매칭 시장의 5% 점유 목표 → <strong>75억원</strong><br><br>
 
             <strong>출처 명시 예:</strong><br>
-            • 국내 연간 결혼 건수: 19.2만 건 (통계청, 2024)<br>
-            • 건당 평균 서브서비스 지출: 780만원 (자체 설문, N=100)<br>
-            • 계산: 19.2만 × 780만 = 1.5조원
+            • 국내 연간 결혼 건수: 22.2만 건 (통계청, 2025.03)<br>
+            • 건당 평균 서브서비스 지출: 67.5만원 (한국소비자원, 2024.11)<br>
+            • 계산: 22.2만 × 67.5만 = 약 1.5조원
         </p>
     </div>
 
