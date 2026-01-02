@@ -214,22 +214,33 @@
         }
 
         pre {
-            background: #f9fafb;
+            background: #1e1e1e;
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 16px;
+            padding: 20px;
             margin: 16px 0;
             overflow-x: auto;
-            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
             font-size: 13px;
             line-height: 1.6;
             page-break-inside: avoid;
+            color: #d4d4d4;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         pre code {
             background: none;
             padding: 0;
+            color: #d4d4d4;
         }
+
+        /* 코드 블록 syntax highlighting (기본 색상) */
+        pre code .comment { color: #6a9955; }
+        pre code .keyword { color: #569cd6; font-weight: 600; }
+        pre code .string { color: #ce9178; }
+        pre code .number { color: #b5cea8; }
+        pre code .function { color: #dcdcaa; }
+        pre code .variable { color: #9cdcfe; }
 
         /* 알림 박스 */
         .alert {
@@ -521,6 +532,546 @@
         .font-bold { font-weight: 700; }
         .mt-20 { margin-top: 20px; }
         .mb-20 { margin-bottom: 20px; }
+
+        /* 아키텍처 다이어그램 */
+        .architecture-diagram {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .arch-layer {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0;
+            flex-wrap: wrap;
+        }
+
+        .arch-box {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            min-width: 180px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .arch-box.primary {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+        }
+
+        .arch-box.accent {
+            border-color: var(--accent);
+        }
+
+        .arch-box-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .arch-box-desc {
+            font-size: 12px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .arch-arrow {
+            text-align: center;
+            color: var(--primary);
+            font-size: 20px;
+            margin: 8px 0;
+        }
+
+        /* 플로우차트 */
+        .flow-diagram {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .flow-step {
+            background: white;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .flow-step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+
+        .flow-step-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .flow-step-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-left: 40px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--primary);
+            font-size: 18px;
+            margin: 4px 0;
+        }
+
+        /* Git 브랜치 시각화 */
+        .branch-diagram {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+
+        .branch-line {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .branch-name {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 4px 12px;
+            margin-right: 12px;
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .branch-name.main { border-color: var(--danger); background: #fef2f2; }
+        .branch-name.develop { border-color: var(--info); background: #eff6ff; }
+        .branch-name.feature { border-color: var(--success); background: #ecfdf5; }
+        .branch-name.fix { border-color: var(--warning); background: #fffbeb; }
+        .branch-name.hotfix { border-color: var(--danger); background: #fef2f2; }
+
+        .branch-connector {
+            color: var(--text-light);
+            margin: 0 8px;
+        }
+
+        /* CI/CD 파이프라인 */
+        .pipeline {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .pipeline-stage {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .pipeline-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pipeline-content {
+            flex: 1;
+        }
+
+        .pipeline-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .pipeline-desc {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* 테스트 피라미드 */
+        .test-pyramid {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 20px 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .pyramid-level {
+            margin: 8px auto;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            max-width: 400px;
+        }
+
+        .pyramid-level.e2e {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            width: 60%;
+        }
+
+        .pyramid-level.integration {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            width: 80%;
+        }
+
+        .pyramid-level.unit {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            width: 100%;
+        }
+
+        .pyramid-percent {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        /* 인터랙티브 코드 시뮬레이터 */
+        .code-simulator {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            page-break-inside: avoid;
+        }
+
+        .code-simulator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #3e3e3e;
+        }
+
+        .code-simulator-title {
+            color: #d4d4d4;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .code-simulator-run-btn {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .code-simulator-run-btn:hover {
+            background: #1177bb;
+        }
+
+        .code-simulator-run-btn:active {
+            background: #0a4d73;
+        }
+
+        .code-simulator-input {
+            background: #252526;
+            border: 1px solid #3e3e3e;
+            color: #d4d4d4;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 13px;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .code-simulator-output {
+            background: #1e1e1e;
+            border: 1px solid #3e3e3e;
+            border-radius: 4px;
+            padding: 12px;
+            min-height: 60px;
+            font-size: 13px;
+            color: #4ec9b0;
+            white-space: pre-wrap;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            display: none;
+        }
+
+        .code-simulator-output.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .code-simulator-output.error {
+            color: #f48771;
+        }
+
+        .code-simulator-output.success {
+            color: #4ec9b0;
+        }
+
+        /* Git 명령어 단계별 가이드 */
+        .git-step-guide {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .git-step {
+            background: white;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .git-step:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateX(4px);
+        }
+
+        .git-step.active {
+            background: #f0f9ff;
+            border-left-color: var(--info);
+        }
+
+        .git-step-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .git-step-number {
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .git-step-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .git-step-command {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 13px;
+            margin: 8px 0;
+            position: relative;
+        }
+
+        .git-step-command::before {
+            content: '$ ';
+            color: #4ec9b0;
+        }
+
+        .git-step-result {
+            background: #0d1117;
+            color: #58a6ff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+            white-space: pre-wrap;
+        }
+
+        .git-step-result.show {
+            display: block;
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 아키텍처 상세 뷰 */
+        .arch-detail-view {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+            display: none;
+            page-break-inside: avoid;
+        }
+
+        .arch-detail-view.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .arch-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .arch-detail-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .arch-detail-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-gray);
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arch-detail-close:hover {
+            color: var(--text-dark);
+        }
+
+        .arch-box.clickable {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .arch-box.clickable:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* 코드 프리뷰 */
+        .code-preview {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .code-preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .code-preview-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .code-preview-tab {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px 6px 0 0;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-gray);
+            transition: all 0.2s;
+        }
+
+        .code-preview-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .code-preview-content {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+            font-size: 13px;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+
+        .code-preview-content pre {
+            margin: 0;
+            background: none;
+            border: none;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -701,7 +1252,34 @@
 
         <h3>0.2. 기술 스택 역할 구분</h3>
 
-        <p>특별시는 <strong>3가지 기술 스택</strong>을 사용하며, 각각 명확한 역할이 있습니다:</p>
+        <p>특별시는 <strong>4가지 기술 스택</strong>을 사용하며, 각각 명확한 역할이 있습니다:</p>
+
+        <div class="architecture-diagram">
+            <div style="text-align: center; margin-bottom: 20px; font-weight: 600; color: var(--primary); font-size: 14px;">
+                시스템 아키텍처
+            </div>
+            <div class="arch-layer">
+                <div class="arch-box primary">
+                    <div class="arch-box-title">Flutter</div>
+                    <div class="arch-box-desc">모바일 앱<br/>iOS + Android</div>
+                </div>
+                <div class="arch-box primary">
+                    <div class="arch-box-title">Next.js</div>
+                    <div class="arch-box-desc">SEO 웹<br/>공개 페이지</div>
+                </div>
+                <div class="arch-box accent">
+                    <div class="arch-box-title">FastAPI</div>
+                    <div class="arch-box-desc">AI 백엔드<br/>Python</div>
+                </div>
+            </div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-layer">
+                <div class="arch-box" style="max-width: 100%; width: 100%;">
+                    <div class="arch-box-title">Supabase (공통 백엔드)</div>
+                    <div class="arch-box-desc">PostgreSQL DB • Auth (JWT) • Storage • Realtime</div>
+                </div>
+            </div>
+        </div>
 
         <table>
             <thead>
@@ -1241,6 +1819,7 @@ git push -u origin develop</code></pre>
                     <th>역할</th>
                     <th>권한 수준</th>
                     <th>설명</th>
+                    <th>가능한 작업</th>
                 </tr>
             </thead>
             <tbody>
@@ -1248,23 +1827,115 @@ git push -u origin develop</code></pre>
                     <td>Admin</td>
                     <td>관리자</td>
                     <td>Tech Lead, PM (1-2명)</td>
+                    <td>모든 권한 (설정 변경, 저장소 삭제 포함)</td>
                 </tr>
                 <tr>
                     <td>Write</td>
                     <td>쓰기</td>
                     <td>개발자 (PR 생성/리뷰 가능)</td>
+                    <td>코드 직접 수정, 브랜치 생성, PR 생성</td>
                 </tr>
                 <tr>
                     <td>Read</td>
                     <td>읽기</td>
-                    <td>디자이너, 기획자</td>
+                    <td>디자이너, 기획자 (권장)</td>
+                    <td>코드 조회, 이슈 생성/관리, PR 코멘트</td>
                 </tr>
             </tbody>
         </table>
 
+        <h4>디자이너/기획자 권한 선택 가이드</h4>
+        
+        <div class="alert alert-warning">
+            <div class="alert-title">Read 권한 권장 (기본 설정)</div>
+            <p><strong>Read 권한만으로도 충분한 이유:</strong></p>
+            <ul style="margin-top: 8px">
+                <li><strong>이슈 생성/관리:</strong> GitHub Issues로 작업 요청, 버그 리포트 가능</li>
+                <li><strong>PR 코멘트:</strong> Pull Request에 디자인/기획 피드백 작성 가능</li>
+                <li><strong>코드 조회:</strong> 모든 코드와 문서 확인 가능</li>
+                <li><strong>보안:</strong> 실수로 코드를 직접 수정할 위험 없음</li>
+                <li><strong>코드 품질:</strong> 모든 변경사항이 PR을 통해 리뷰됨</li>
+            </ul>
+        </div>
+
+        <div class="alert alert-info">
+            <div class="alert-title">Write 권한이 필요한 경우 (선택적)</div>
+            <p>다음 경우에만 Write 권한을 고려하세요:</p>
+            <ul style="margin-top: 8px">
+                <li><strong>디자이너:</strong> 디자인 파일(이미지, SVG, 아이콘)을 직접 저장소에 업로드해야 할 때</li>
+                <li><strong>기획자:</strong> 문서(MD 파일)를 직접 수정하고 PR 없이 바로 반영해야 할 때</li>
+                <li><strong>신뢰 관계:</strong> 코드 변경에 대한 충분한 이해와 책임감이 있을 때</li>
+            </ul>
+            <p style="margin-top: 12px; font-weight: 600;">⚠️ 주의: Write 권한 부여 시에도 브랜치 보호 규칙으로 main 브랜치 직접 push는 차단됩니다.</p>
+        </div>
+
+        <h4>권한별 작업 가능 범위</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>작업</th>
+                    <th>Read</th>
+                    <th>Write</th>
+                    <th>Admin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>코드 조회</td>
+                    <td>가능</td>
+                    <td>가능</td>
+                    <td>가능</td>
+                </tr>
+                <tr>
+                    <td>이슈 생성/관리</td>
+                    <td>가능</td>
+                    <td>가능</td>
+                    <td>가능</td>
+                </tr>
+                <tr>
+                    <td>PR 코멘트</td>
+                    <td>가능</td>
+                    <td>가능</td>
+                    <td>가능</td>
+                </tr>
+                <tr>
+                    <td>브랜치 생성</td>
+                    <td>불가</td>
+                    <td>가능</td>
+                    <td>가능</td>
+                </tr>
+                <tr>
+                    <td>코드 직접 수정</td>
+                    <td>불가</td>
+                    <td>가능 (PR 필수)</td>
+                    <td>가능 (PR 필수)</td>
+                </tr>
+                <tr>
+                    <td>설정 변경</td>
+                    <td>불가</td>
+                    <td>불가</td>
+                    <td>가능</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-success">
+            <div class="alert-title">권장 설정</div>
+            <p><strong>초기 설정: 디자이너/기획자 → Read 권한</strong></p>
+            <ul style="margin-top: 8px">
+                <li>대부분의 협업은 Read 권한으로 충분합니다</li>
+                <li>필요 시 나중에 Write 권한으로 업그레이드 가능</li>
+                <li>브랜치 보호 규칙으로 main 브랜치 직접 push는 차단됨</li>
+            </ul>
+        </div>
+
         <div class="alert alert-info">
             <div class="alert-title">참고</div>
-            Organization 계정을 사용하면 Teams 기능으로 그룹 단위 권한 관리가 가능합니다.
+            <ul style="margin-top: 8px">
+                <li>Organization 계정을 사용하면 Teams 기능으로 그룹 단위 권한 관리가 가능합니다</li>
+                <li>저장소별로 다른 권한 설정 가능 (예: docs 저장소는 Write, 코드 저장소는 Read)</li>
+                <li>권한은 언제든지 변경 가능하므로, 초기에는 보수적으로 설정하는 것을 권장합니다</li>
+            </ul>
         </div>
 
         <div class="page-number">2</div>
@@ -1279,6 +1950,36 @@ git push -u origin develop</code></pre>
         </div>
 
         <h3>2.1. 브랜치 전략 (Git Flow 단순화 버전)</h3>
+
+        <div class="branch-diagram">
+            <div style="font-weight: 600; margin-bottom: 16px; color: var(--primary); text-align: center;">
+                브랜치 구조
+            </div>
+            <div class="branch-line">
+                <span class="branch-name main">main</span>
+                <span class="branch-connector">← 프로덕션 (앱스토어 배포)</span>
+            </div>
+            <div style="margin-left: 40px; color: var(--text-light);">↑</div>
+            <div class="branch-line" style="margin-left: 40px;">
+                <span class="branch-name develop">develop</span>
+                <span class="branch-connector">← 개발 통합</span>
+            </div>
+            <div style="margin-left: 80px; color: var(--text-light);">↑</div>
+            <div style="margin-left: 80px;">
+                <div class="branch-line">
+                    <span class="branch-name feature">feature/*</span>
+                    <span class="branch-connector">← 새 기능</span>
+                </div>
+                <div class="branch-line">
+                    <span class="branch-name fix">fix/*</span>
+                    <span class="branch-connector">← 버그 수정</span>
+                </div>
+                <div class="branch-line">
+                    <span class="branch-name hotfix">hotfix/*</span>
+                    <span class="branch-connector">← 긴급 수정 (main에서)</span>
+                </div>
+            </div>
+        </div>
 
         <pre><code>main (프로덕션 - 앱스토어 배포)
   ↑
@@ -1376,6 +2077,50 @@ FEAT-LOGIN</code></pre>
     <div class="page" id="section-2-2">
         <h3>2.3. 일반 개발 플로우</h3>
 
+        <div class="flow-diagram">
+            <div class="flow-step">
+                <span class="flow-step-number">1</span>
+                <span class="flow-step-title">GitHub에서 Issue 생성</span>
+                <div class="flow-step-desc">예: "#23 카카오 로그인 구현"</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">2</span>
+                <span class="flow-step-title">최신 develop 브랜치 Pull</span>
+                <div class="flow-step-desc"><code>git checkout develop && git pull</code></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">3</span>
+                <span class="flow-step-title">새 브랜치 생성</span>
+                <div class="flow-step-desc"><code>git checkout -b feature/#23-login-kakao</code></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">4</span>
+                <span class="flow-step-title">개발 및 커밋</span>
+                <div class="flow-step-desc">작은 단위로 자주 커밋 (Conventional Commits)</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">5</span>
+                <span class="flow-step-title">Push 및 PR 생성</span>
+                <div class="flow-step-desc">GitHub에서 Pull Request 생성</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">6</span>
+                <span class="flow-step-title">코드 리뷰</span>
+                <div class="flow-step-desc">최소 1명 승인 필요</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">7</span>
+                <span class="flow-step-title">Merge 및 브랜치 삭제</span>
+                <div class="flow-step-desc">develop에 병합 후 브랜치 삭제</div>
+            </div>
+        </div>
+
         <ol class="numbered-list">
             <li>GitHub에서 Issue 생성 (예: "#23 카카오 로그인 구현")</li>
             <li>최신 develop 브랜치 Pull</li>
@@ -1398,6 +2143,72 @@ git checkout -b feature/#23-login-kakao
 git branch</code></pre>
 
         <h4>개발 중</h4>
+
+        <div class="code-simulator">
+            <div class="code-simulator-header">
+                <div class="code-simulator-title">💻 Git 명령어 시뮬레이터</div>
+                <button class="code-simulator-run-btn" onclick="runGitCommand()">실행</button>
+            </div>
+            <input type="text" class="code-simulator-input" id="gitCommandInput" 
+                   placeholder="git 명령어를 입력하세요 (예: git status, git add .)" 
+                   value="git status"
+                   onkeypress="if(event.key==='Enter') runGitCommand()">
+            <div class="code-simulator-output" id="gitCommandOutput"></div>
+        </div>
+
+        <div class="git-step-guide">
+            <div class="git-step" onclick="toggleGitStep(this)">
+                <div class="git-step-header">
+                    <div class="git-step-number">1</div>
+                    <div class="git-step-title">작업 상태 확인</div>
+                </div>
+                <div class="git-step-command">git status</div>
+                <div class="git-step-result">On branch feature/#23-login-kakao
+Changes not staged for commit:
+  modified:   lib/features/auth/kakao_login.dart
+  modified:   lib/features/auth/login_screen.dart</div>
+            </div>
+            <div class="git-step" onclick="toggleGitStep(this)">
+                <div class="git-step-header">
+                    <div class="git-step-number">2</div>
+                    <div class="git-step-title">변경사항 확인</div>
+                </div>
+                <div class="git-step-command">git diff</div>
+                <div class="git-step-result">diff --git a/lib/features/auth/kakao_login.dart ...
++ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
++ class KakaoAuthService { ... }</div>
+            </div>
+            <div class="git-step" onclick="toggleGitStep(this)">
+                <div class="git-step-header">
+                    <div class="git-step-number">3</div>
+                    <div class="git-step-title">변경된 파일 스테이징</div>
+                </div>
+                <div class="git-step-command">git add lib/features/auth/kakao_login.dart</div>
+                <div class="git-step-result">(no output - file staged successfully)</div>
+            </div>
+            <div class="git-step" onclick="toggleGitStep(this)">
+                <div class="git-step-header">
+                    <div class="git-step-number">4</div>
+                    <div class="git-step-title">커밋 생성</div>
+                </div>
+                <div class="git-step-command">git commit -m "feat(auth): 카카오 로그인 구현"</div>
+                <div class="git-step-result">[feature/#23-login-kakao abc1234] feat(auth): 카카오 로그인 구현
+ 2 files changed, 45 insertions(+), 3 deletions(-)</div>
+            </div>
+            <div class="git-step" onclick="toggleGitStep(this)">
+                <div class="git-step-header">
+                    <div class="git-step-number">5</div>
+                    <div class="git-step-title">원격 저장소에 Push</div>
+                </div>
+                <div class="git-step-command">git push origin feature/#23-login-kakao</div>
+                <div class="git-step-result">Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 1.2 KiB | 1.2 MiB/s, done.
+To https://github.com/your-org/teukbyulsi.git
+ * [new branch]      feature/#23-login-kakao -> feature/#23-login-kakao</div>
+            </div>
+        </div>
+
         <pre><code># 상태 확인
 git status
 
@@ -1771,29 +2582,454 @@ flutter doctor</code></pre>
 
         <h3>5.2. 환경 변수 관리</h3>
 
+        <h4>소셜 로그인 옵션</h4>
+        <p>Supabase Auth를 사용하면 다양한 소셜 로그인을 쉽게 추가할 수 있습니다.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>소셜 로그인</th>
+                    <th>패키지/SDK</th>
+                    <th>발급 사이트</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>카카오</strong></td>
+                    <td><code>kakao_flutter_sdk</code></td>
+                    <td>developers.kakao.com</td>
+                    <td>무료</td>
+                    <td>한국 시장 필수</td>
+                </tr>
+                <tr>
+                    <td><strong>네이버</strong></td>
+                    <td>Supabase Auth 내장</td>
+                    <td>developers.naver.com</td>
+                    <td>무료</td>
+                    <td>한국 시장 필수</td>
+                </tr>
+                <tr>
+                    <td><strong>Apple</strong></td>
+                    <td>Supabase Auth 내장</td>
+                    <td>developer.apple.com</td>
+                    <td>무료 (Apple Developer 계정 필요)</td>
+                    <td>iOS 앱스토어 필수</td>
+                </tr>
+                <tr>
+                    <td><strong>구글 (Google)</strong></td>
+                    <td>Supabase Auth 내장</td>
+                    <td>console.cloud.google.com</td>
+                    <td>무료</td>
+                    <td>전 세계 표준</td>
+                </tr>
+                <tr>
+                    <td><strong>페이스북</strong></td>
+                    <td>Supabase Auth 내장</td>
+                    <td>developers.facebook.com</td>
+                    <td>무료</td>
+                    <td>선택적</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-success">
+            <div class="alert-title">권장 소셜 로그인 (MVP)</div>
+            <ul style="margin-top: 8px">
+                <li><strong>필수:</strong> 카카오, 네이버 (한국 시장)</li>
+                <li><strong>필수:</strong> Apple (iOS 앱스토어 정책상 필수)</li>
+                <li><strong>권장:</strong> 구글 (전 세계 사용자)</li>
+            </ul>
+        </div>
+
+        <h4>카카오 SDK</h4>
+        <p>카카오 SDK (Software Development Kit)는 카카오톡 소셜 로그인을 구현하기 위한 Flutter 패키지입니다.</p>
+        
+        <div class="alert alert-info">
+            <div class="alert-title">카카오 SDK 기본 정보</div>
+            <ul style="margin-top: 8px">
+                <li><strong>패키지명:</strong> <code>kakao_flutter_sdk</code> 또는 <code>kakao_sdk_flutter</code></li>
+                <li><strong>용도:</strong> 카카오톡 계정으로 앱에 로그인하는 기능 제공</li>
+                <li><strong>KAKAO_APP_KEY:</strong> 카카오 개발자 콘솔(https://developers.kakao.com)에서 발급받는 앱 키</li>
+                <li><strong>비용:</strong> 무료 (카카오 개발자 계정만 있으면 사용 가능)</li>
+            </ul>
+        </div>
+
+        <h4>카카오 앱 키 발급 방법</h4>
+        <ol>
+            <li>카카오 개발자 콘솔 접속: https://developers.kakao.com</li>
+            <li>내 애플리케이션 → 애플리케이션 추가하기</li>
+            <li>앱 이름, 사업자명 입력</li>
+            <li>앱 설정 → 플랫폼 → Android/iOS 플랫폼 등록</li>
+            <li>앱 키 → REST API 키 복사 (KAKAO_APP_KEY로 사용)</li>
+            <li>제품 설정 → 카카오 로그인 활성화</li>
+        </ol>
+
+        <h4>네이버 로그인</h4>
+        <div class="alert alert-info">
+            <div class="alert-title">네이버 로그인 기본 정보</div>
+            <ul style="margin-top: 8px">
+                <li><strong>방식:</strong> Supabase Auth의 OAuth 제공자 사용 (별도 SDK 불필요)</li>
+                <li><strong>발급 사이트:</strong> https://developers.naver.com</li>
+                <li><strong>필요 정보:</strong> Client ID, Client Secret</li>
+                <li><strong>비용:</strong> 무료</li>
+            </ul>
+        </div>
+
+        <h4>Apple 로그인 (Sign in with Apple)</h4>
+        <div class="alert alert-warning">
+            <div class="alert-title">Apple 로그인 필수 사항</div>
+            <ul style="margin-top: 8px">
+                <li><strong>iOS 앱스토어 정책:</strong> 다른 소셜 로그인이 있으면 Apple 로그인도 필수 제공</li>
+                <li><strong>필요 계정:</strong> Apple Developer Program (연 $99)</li>
+                <li><strong>방식:</strong> Supabase Auth의 OAuth 제공자 사용</li>
+                <li><strong>발급:</strong> Apple Developer Portal에서 Service ID 생성</li>
+            </ul>
+        </div>
+
+        <h4>구글 로그인 (Google Sign-In)</h4>
+        <div class="alert alert-info">
+            <div class="alert-title">구글 로그인 기본 정보</div>
+            <ul style="margin-top: 8px">
+                <li><strong>방식:</strong> Supabase Auth의 OAuth 제공자 사용</li>
+                <li><strong>발급 사이트:</strong> https://console.cloud.google.com</li>
+                <li><strong>필요 정보:</strong> Client ID, Client Secret</li>
+                <li><strong>비용:</strong> 무료</li>
+            </ul>
+        </div>
+
         <h4>.env 파일 생성</h4>
         <pre><code># apps/flutter/.env (Git에 커밋 X)
 SUPABASE_URL=https://xxxxx.supabase.co
 SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-KAKAO_APP_KEY=abc123def456
+
+# 소셜 로그인 (선택적으로 추가)
+KAKAO_APP_KEY=abc123def456  # 카카오 개발자 콘솔에서 발급받은 REST API 키
+# 네이버, Apple, 구글은 Supabase 대시보드에서 설정 (환경 변수 불필요)
+
 TOSS_CLIENT_KEY=test_ck_...
 TOSS_SECRET_KEY=test_sk_...</code></pre>
+
+        <div class="alert alert-info">
+            <div class="alert-title">소셜 로그인 설정 방법</div>
+            <ul style="margin-top: 8px">
+                <li><strong>카카오:</strong> .env 파일에 KAKAO_APP_KEY 추가 + 별도 SDK 패키지 필요</li>
+                <li><strong>네이버/Apple/구글:</strong> Supabase 대시보드 → Authentication → Providers에서 설정</li>
+                <li>Supabase Auth를 사용하면 대부분의 소셜 로그인은 별도 SDK 없이 사용 가능</li>
+            </ul>
+        </div>
 
         <h4>.env.example 파일 (Git에 커밋 O)</h4>
         <pre><code># apps/flutter/.env.example
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_ANON_KEY=your-anon-key
+
+# 소셜 로그인 (선택적)
 KAKAO_APP_KEY=your-kakao-key
+# 네이버, Apple, 구글은 Supabase 대시보드에서 설정
+
 TOSS_CLIENT_KEY=test_ck_XXX
 TOSS_SECRET_KEY=test_sk_XXX</code></pre>
 
         <h4>pubspec.yaml에 패키지 추가</h4>
         <pre><code>dependencies:
   flutter_dotenv: ^5.1.0
+  supabase_flutter: ^2.0.0
+  # 카카오 로그인만 별도 SDK 필요
+  kakao_flutter_sdk: ^1.5.0  # 선택적
 
 flutter:
   assets:
     - .env</code></pre>
+
+        <div class="alert alert-info">
+            <div class="alert-title">패키지 선택 가이드</div>
+            <ul style="margin-top: 8px">
+                <li><strong>Supabase Auth:</strong> 네이버, Apple, 구글 로그인은 별도 SDK 없이 사용 가능</li>
+                <li><strong>카카오 SDK:</strong> 카카오 로그인만 별도 패키지(kakao_flutter_sdk) 필요</li>
+                <li>대부분의 소셜 로그인은 Supabase Auth만으로도 충분</li>
+            </ul>
+        </div>
+
+        <h3>5.2.1. 서비스 플랫폼 필수 기능 및 서비스</h3>
+        
+        <p>서비스 플랫폼 앱을 운영하기 위해 필수적으로 필요한 기능과 외부 서비스 목록입니다.</p>
+
+        <h4>필수 인증 및 보안</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>서비스/기술</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>소셜 로그인</td>
+                    <td>Supabase Auth + 카카오 SDK</td>
+                    <td>무료</td>
+                    <td>카카오, 네이버, Apple, 구글</td>
+                </tr>
+                <tr>
+                    <td>이메일 인증</td>
+                    <td>Supabase Auth</td>
+                    <td>무료</td>
+                    <td>회원가입, 비밀번호 재설정</td>
+                </tr>
+                <tr>
+                    <td>보안 (RLS)</td>
+                    <td>Supabase Row Level Security</td>
+                    <td>무료</td>
+                    <td>데이터 접근 권한 제어</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>필수 데이터 및 스토리지</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>서비스/기술</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>데이터베이스</td>
+                    <td>Supabase (PostgreSQL)</td>
+                    <td>무료 티어</td>
+                    <td>사용자, 매칭, 리뷰 등 모든 데이터</td>
+                </tr>
+                <tr>
+                    <td>이미지 스토리지</td>
+                    <td>Supabase Storage</td>
+                    <td>무료 티어 (25GB)</td>
+                    <td>프로필 사진, 포트폴리오 이미지</td>
+                </tr>
+                <tr>
+                    <td>실시간 채팅</td>
+                    <td>Supabase Realtime</td>
+                    <td>무료 티어</td>
+                    <td>채팅 메시지 실시간 동기화</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>필수 결제 및 금융</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>서비스/기술</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>결제 시스템</td>
+                    <td>토스페이먼츠</td>
+                    <td>거래 수수료</td>
+                    <td>크레딧 충전, 예약 결제</td>
+                </tr>
+                <tr>
+                    <td>에스크로</td>
+                    <td>토스페이먼츠 (Phase 2)</td>
+                    <td>거래 수수료</td>
+                    <td>안전 거래 보장</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>필수 모니터링 및 분석</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>서비스/기술</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>크래시 리포팅</td>
+                    <td>Firebase Crashlytics / Sentry</td>
+                    <td>무료 티어</td>
+                    <td>앱 오류 추적 및 알림</td>
+                </tr>
+                <tr>
+                    <td>사용자 분석</td>
+                    <td>Firebase Analytics / Mixpanel / Amplitude</td>
+                    <td>무료 티어</td>
+                    <td>사용자 행동, 이벤트 추적</td>
+                </tr>
+                <tr>
+                    <td>성능 모니터링</td>
+                    <td>Firebase Performance / Sentry Performance</td>
+                    <td>무료 티어</td>
+                    <td>API 응답 시간, 앱 성능</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>필수 알림 및 통신</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>서비스/기술</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>푸시 알림</td>
+                    <td>Firebase Cloud Messaging (FCM)</td>
+                    <td>무료</td>
+                    <td>채팅 메시지, 매칭 알림</td>
+                </tr>
+                <tr>
+                    <td>이메일 알림</td>
+                    <td>Supabase Auth (이메일) / SendGrid</td>
+                    <td>무료 티어</td>
+                    <td>회원가입, 비밀번호 재설정</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>필수 위치 및 지도 서비스</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>서비스/기술</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>지도 서비스</td>
+                    <td>카카오맵 API / 네이버 지도 API</td>
+                    <td>무료 티어</td>
+                    <td>프리랜서 위치 표시, 지역 검색</td>
+                </tr>
+                <tr>
+                    <td>위치 권한</td>
+                    <td>Flutter location 패키지</td>
+                    <td>무료</td>
+                    <td>사용자 위치 기반 검색</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>필수 개발 및 배포 도구</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>서비스/기술</th>
+                    <th>비용</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CI/CD</td>
+                    <td>GitHub Actions</td>
+                    <td>무료</td>
+                    <td>자동 빌드 및 배포</td>
+                </tr>
+                <tr>
+                    <td>앱 배포 (iOS)</td>
+                    <td>TestFlight / App Store Connect</td>
+                    <td>Apple Developer $99/년</td>
+                    <td>베타 테스트, 앱스토어 배포</td>
+                </tr>
+                <tr>
+                    <td>앱 배포 (Android)</td>
+                    <td>Google Play Console</td>
+                    <td>$25 (일회성)</td>
+                    <td>Play Store 배포</td>
+                </tr>
+                <tr>
+                    <td>웹 배포</td>
+                    <td>Vercel</td>
+                    <td>무료 티어</td>
+                    <td>Next.js 자동 배포</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>필수 기능 (앱 내)</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>기능</th>
+                    <th>설명</th>
+                    <th>우선순위</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>딥링크 (Deep Link)</td>
+                    <td>공유 링크로 앱 특정 화면 열기</td>
+                    <td>높음</td>
+                </tr>
+                <tr>
+                    <td>공지사항/FAQ</td>
+                    <td>서비스 안내, 자주 묻는 질문</td>
+                    <td>중간</td>
+                </tr>
+                <tr>
+                    <td>고객 지원 (CS)</td>
+                    <td>1:1 문의, 채팅 상담</td>
+                    <td>중간</td>
+                </tr>
+                <tr>
+                    <td>오프라인 모드</td>
+                    <td>네트워크 없을 때 기본 기능 동작</td>
+                    <td>낮음</td>
+                </tr>
+                <tr>
+                    <td>다국어 지원 (i18n)</td>
+                    <td>한국어/영어 등</td>
+                    <td>낮음 (Phase 2)</td>
+                </tr>
+                <tr>
+                    <td>접근성 (A11y)</td>
+                    <td>스크린 리더, 고대비 모드</td>
+                    <td>중간</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert alert-success">
+            <div class="alert-title">MVP 필수 항목 요약</div>
+            <p><strong>반드시 필요한 것 (Phase 1):</strong></p>
+            <ul style="margin-top: 8px">
+                <li>인증 (소셜 로그인)</li>
+                <li>데이터베이스 + 스토리지</li>
+                <li>결제 시스템</li>
+                <li>푸시 알림</li>
+                <li>크래시 리포팅</li>
+                <li>사용자 분석 (기본)</li>
+                <li>딥링크</li>
+            </ul>
+            <p style="margin-top: 12px"><strong>Phase 2에서 추가:</strong></p>
+            <ul style="margin-top: 8px">
+                <li>지도 서비스 (위치 기반 검색)</li>
+                <li>고객 지원 시스템</li>
+                <li>오프라인 모드</li>
+            </ul>
+        </div>
 
         <h4>코드에서 사용</h4>
         <pre><code>// lib/main.dart
@@ -1949,6 +3185,53 @@ flutter run -d android  # Android</code></pre>
         </table>
 
         <h3>6.2. 배포 플로우</h3>
+
+        <div class="flow-diagram">
+            <div style="text-align: center; margin-bottom: 16px; font-weight: 600; color: var(--primary); font-size: 14px;">
+                배포 프로세스
+            </div>
+            <div class="flow-step">
+                <span class="flow-step-number">1</span>
+                <span class="flow-step-title">코드 개발 완료</span>
+                <div class="flow-step-desc">develop 브랜치에 모든 기능 Merge</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">2</span>
+                <span class="flow-step-title">QA 테스트 (Staging)</span>
+                <div class="flow-step-desc">TestFlight / Firebase App Distribution</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">3</span>
+                <span class="flow-step-title">develop → main Merge</span>
+                <div class="flow-step-desc">PR 생성 및 승인</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">4</span>
+                <span class="flow-step-title">버전 업데이트</span>
+                <div class="flow-step-desc">Semantic Versioning (1.0.0 → 1.1.0)</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">5</span>
+                <span class="flow-step-title">프로덕션 빌드</span>
+                <div class="flow-step-desc">iOS: IPA / Android: AAB</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">6</span>
+                <span class="flow-step-title">앱스토어 제출</span>
+                <div class="flow-step-desc">App Store Connect / Play Console</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">7</span>
+                <span class="flow-step-title">배포 완료</span>
+                <div class="flow-step-desc">사용자에게 새 버전 출시</div>
+            </div>
+        </div>
 
         <h4>Phase 1: 내부 테스트 (TestFlight/Firebase App Distribution)</h4>
 
@@ -2171,6 +3454,41 @@ flutter build appbundle --release
         </table>
 
         <h3>7.2. 장애 발생 시 즉시 행동</h3>
+
+        <div class="flow-diagram">
+            <div style="text-align: center; margin-bottom: 16px; font-weight: 600; color: var(--primary); font-size: 14px;">
+                장애 대응 프로세스
+            </div>
+            <div class="flow-step">
+                <span class="flow-step-number">1</span>
+                <span class="flow-step-title">감지 및 알림 (0-5분)</span>
+                <div class="flow-step-desc">Crashlytics 알림 • 사용자 신고 • 모니터링 알림</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">2</span>
+                <span class="flow-step-title">상황 파악 (5-15분)</span>
+                <div class="flow-step-desc">영향 범위 • 재현 가능 여부 • 원인 추정</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">3</span>
+                <span class="flow-step-title">긴급 조치 (15-30분)</span>
+                <div class="flow-step-desc">Feature Flag 비활성화 • 공지 • 서버사이드 수정</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">4</span>
+                <span class="flow-step-title">핫픽스 배포 (30분-2시간)</span>
+                <div class="flow-step-desc">최소 수정 • 테스트 • 배포</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+                <span class="flow-step-number">5</span>
+                <span class="flow-step-title">Post-Mortem 작성</span>
+                <div class="flow-step-desc">원인 분석 • 재발 방지 대책</div>
+            </div>
+        </div>
 
         <h4>1단계: 감지 및 알림 (0-5분)</h4>
         <p>장애 감지 방법:</p>
@@ -2908,6 +4226,47 @@ git push origin feature/#12-fix-typo
         <p><strong>CI (Continuous Integration)</strong>: 코드 변경 시 자동 빌드/테스트</p>
         <p><strong>CD (Continuous Deployment)</strong>: 테스트 통과 시 자동 배포</p>
 
+        <div class="pipeline">
+            <div style="text-align: center; margin-bottom: 20px; font-weight: 600; color: var(--primary); font-size: 14px;">
+                CI/CD 파이프라인
+            </div>
+            <div class="pipeline-stage">
+                <div class="pipeline-icon">1</div>
+                <div class="pipeline-content">
+                    <div class="pipeline-title">코드 Push / PR 생성</div>
+                    <div class="pipeline-desc">GitHub에 코드 변경사항 업로드</div>
+                </div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="pipeline-stage">
+                <div class="pipeline-icon">2</div>
+                <div class="pipeline-content">
+                    <div class="pipeline-title">자동 테스트 실행 (CI)</div>
+                    <div class="pipeline-desc">flutter analyze • flutter test • 코드 커버리지</div>
+                </div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="pipeline-stage">
+                <div class="pipeline-icon">3</div>
+                <div class="pipeline-content">
+                    <div class="pipeline-title">코드 리뷰 및 승인</div>
+                    <div class="pipeline-desc">최소 1명 승인 필요</div>
+                </div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="pipeline-stage">
+                <div class="pipeline-icon">4</div>
+                <div class="pipeline-content">
+                    <div class="pipeline-title">자동 배포 (CD)</div>
+                    <div class="pipeline-desc">
+                        Flutter: TestFlight / Firebase App Distribution<br/>
+                        Next.js: Vercel Preview (PR) → Production (main)<br/>
+                        FastAPI: Railway 자동 배포
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h4>우리 프로젝트의 CI/CD</h4>
         <ul>
             <li>PR 생성 시 자동 테스트 실행</li>
@@ -2982,7 +4341,22 @@ jobs:
 
         <h3>12.1. 테스트 피라미드</h3>
 
-        <pre><code>          ╱▔▔▔▔▔▔▔╲
+        <div class="test-pyramid">
+            <div class="pyramid-level e2e">
+                E2E (End-to-End) 테스트
+                <div class="pyramid-percent">10% - 느림, 비용 높음</div>
+            </div>
+            <div class="pyramid-level integration">
+                Integration (통합) 테스트
+                <div class="pyramid-percent">30% - 보통</div>
+            </div>
+            <div class="pyramid-level unit">
+                Unit (단위) 테스트
+                <div class="pyramid-percent">60% - 빠름, 저렴</div>
+            </div>
+        </div>
+
+<pre><code>          ╱▔▔▔▔▔▔▔╲
          ╱  E2E     ╲      ← 느림, 비용 높음 (10%)
         ╱▔▔▔▔▔▔▔▔▔▔▔╲
        ╱ Integration  ╲    ← 보통 (30%)
@@ -3384,6 +4758,111 @@ if (mounted) {
                 }
             });
         });
+
+        // Git 명령어 시뮬레이터
+        function runGitCommand() {
+            const input = document.getElementById('gitCommandInput');
+            const output = document.getElementById('gitCommandOutput');
+            const command = input.value.trim().toLowerCase();
+
+            if (!command) {
+                output.textContent = '명령어를 입력하세요.';
+                output.className = 'code-simulator-output show error';
+                return;
+            }
+
+            // 명령어별 결과 시뮬레이션
+            const results = {
+                'git status': 'On branch feature/#23-login-kakao\nChanges not staged for commit:\n  modified:   lib/features/auth/kakao_login.dart\n\nUntracked files:\n  lib/features/auth/kakao_auth_service.dart',
+                'git add .': 'All changes staged successfully.',
+                'git add': 'usage: git add [<options>] [--] <file>...',
+                'git commit': 'Aborting commit due to empty commit message.',
+                'git commit -m "test"': '[feature/#23-login-kakao abc1234] test\n 1 file changed, 5 insertions(+)',
+                'git push': 'Enumerating objects: 5, done.\nWriting objects: 100% (3/3), done.\nTo https://github.com/your-org/teukbyulsi.git\n * [new branch]      feature/#23-login-kakao -> feature/#23-login-kakao',
+                'git branch': '  develop\n* feature/#23-login-kakao\n  main',
+                'git checkout develop': 'Switched to branch \'develop\'',
+                'git pull': 'Already up to date.',
+                'git log': 'commit abc1234 (HEAD -> feature/#23-login-kakao)\nAuthor: Your Name <you@example.com>\nDate:   Mon Jan 2 14:30:00 2026 +0900\n\n    feat(auth): 카카오 로그인 구현',
+            };
+
+            let resultText = results[command];
+            if (!resultText) {
+                // 부분 매칭 시도
+                if (command.includes('status')) {
+                    resultText = results['git status'];
+                } else if (command.includes('add')) {
+                    resultText = results['git add .'];
+                } else if (command.includes('commit')) {
+                    resultText = results['git commit -m "test"'];
+                } else if (command.includes('push')) {
+                    resultText = results['git push'];
+                } else if (command.includes('branch')) {
+                    resultText = results['git branch'];
+                } else {
+                    resultText = `명령어 "${command}"를 찾을 수 없습니다.\n\n사용 가능한 명령어:\n- git status\n- git add .\n- git commit -m "메시지"\n- git push\n- git branch\n- git checkout develop\n- git pull\n- git log`;
+                }
+            }
+
+            output.textContent = resultText;
+            output.className = 'code-simulator-output show success';
+        }
+
+        // Git 단계별 가이드 토글
+        function toggleGitStep(element) {
+            const result = element.querySelector('.git-step-result');
+            const isActive = element.classList.contains('active');
+            
+            // 모든 단계 비활성화
+            document.querySelectorAll('.git-step').forEach(step => {
+                step.classList.remove('active');
+                step.querySelector('.git-step-result').classList.remove('show');
+            });
+            
+            // 클릭한 단계 활성화
+            if (!isActive) {
+                element.classList.add('active');
+                result.classList.add('show');
+            }
+        }
+
+        // 아키텍처 상세 뷰
+        function showArchDetail(platform) {
+            // 모든 상세 뷰 닫기
+            document.querySelectorAll('.arch-detail-view').forEach(view => {
+                view.classList.remove('show');
+            });
+            
+            // 선택한 플랫폼 상세 뷰 열기
+            const detailView = document.getElementById(`arch-detail-${platform}`);
+            if (detailView) {
+                detailView.classList.add('show');
+                detailView.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function closeArchDetail(platform) {
+            const detailView = document.getElementById(`arch-detail-${platform}`);
+            if (detailView) {
+                detailView.classList.remove('show');
+            }
+        }
+
+        // 코드 프리뷰 탭 전환
+        function switchCodeTab(tab, contentId) {
+            // 모든 탭 비활성화
+            document.querySelectorAll('.code-preview-tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            
+            // 모든 콘텐츠 숨기기
+            document.querySelectorAll('.code-preview-content').forEach(c => {
+                c.style.display = 'none';
+            });
+            
+            // 선택한 탭 활성화
+            tab.classList.add('active');
+            document.getElementById(`code-preview-${contentId}`).style.display = 'block';
+        }
     </script>
 </body>
 </html>
